@@ -17,5 +17,6 @@ spec:
       containers:
       - name: ubuntu-simple
         image: ghcr.io/gimse/simple-ubuntu-docker-image/simple-ubuntu-docker-image:1.0.0
+        command: [ "/bin/sh" , "-c", "tail -f /dev/null" ]
       imagePullSecrets:
       - name: github-pull-secret 
