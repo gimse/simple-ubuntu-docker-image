@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-simple
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ubuntu-simple
+  template:
+    metadata:
+      labels:
+        app: ubuntu-simple
+    spec:
+      containers:
+      - name: ubuntu-simple
+        image: ghcr.io/gimse/simple-ubuntu-docker-image/simple-ubuntu-docker-image:1.0.0
+      imagePullSecrets:
+      - name: github-pull-secret 
